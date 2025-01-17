@@ -8,26 +8,34 @@ import { sendAdminTechnicianWelcomeEmail, sendClientWelcomeEmail } from "./email
 const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 
 export const clientRegister = catchAsyncErrors(async (req, res, next) => {
-    const { firstName, lastName, email, password, role, address, otp } = req.body;
+    console.log("hello1");
+    const { firstName, lastName, email, password, address } = req.body;
+    // const { firstName, lastName, email, password, role, address, otp } = req.body;
+
+    const role = "client";
 
     // Validate input fields
-    if (!firstName || !lastName || !email || !password || !role || !otp) {
+    // if (!firstName || !lastName || !email || !password || !role || !otp) {
+    //     return next(new ErrorHandler("Please fill the complete form.", 400));
+    // }
+
+    if (!firstName || !lastName || !email || !password || !role) {
         return next(new ErrorHandler("Please fill the complete form.", 400));
     }
 
     // Verify OTP
-    const storedData = otpStore[email];
-    if (!storedData) {
-        return next(new ErrorHandler("OTP not found or already used.", 400));
-    }
+    // const storedData = otpStore[email];
+    // if (!storedData) {
+    //     return next(new ErrorHandler("OTP not found or already used.", 400));
+    // }
 
-    if (storedData.otp !== otp) {
-        return next(new ErrorHandler("Invalid OTP.", 400));
-    }
+    // if (storedData.otp !== otp) {
+    //     return next(new ErrorHandler("Invalid OTP.", 400));
+    // }
 
-    if (Date.now() > storedData.expiresAt) {
-        return next(new ErrorHandler("OTP has expired.", 400));
-    }
+    // if (Date.now() > storedData.expiresAt) {
+    //     return next(new ErrorHandler("OTP has expired.", 400));
+    // }
 
     // Check if user already exists
     let user1 = await User.findOne({ email });
@@ -46,9 +54,9 @@ export const clientRegister = catchAsyncErrors(async (req, res, next) => {
     });
 
     // Clear OTP after successful registration
-    delete otpStore[email];
+    // delete otpStore[email];
 
-    sendClientWelcomeEmail(email, firstName);
+    // sendClientWelcomeEmail(email, firstName);
 
     // Generate and send token
     generateToken(user1, "User registered successfully.", 200, res);
