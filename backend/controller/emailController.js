@@ -7,6 +7,8 @@ export const sendClientVerificationOtp = catchAsyncErrors(async (req, res) => {
     const { email } = req.body;
     const { otp } = req; // Get OTP from the request object
 
+    console.log("hello");
+    
     // Prepare email content
     const response = await transporter.sendMail({
         from: `"Construction" <${process.env.NODEMAILER_EMAIL}>`, // sender address
@@ -16,7 +18,7 @@ export const sendClientVerificationOtp = catchAsyncErrors(async (req, res) => {
         html: Client_Verification_Email_Template.replace("{verificationCode}",otp), // HTML body
     });
 
-    // console.log("Email Sent Successfully:", response);
+    console.log("Email Sent Successfully:", response);
 
     res.status(200).json({ message: "OTP sent successfully" }); // Optional: include OTP for testing
 

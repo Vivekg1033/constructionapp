@@ -6,6 +6,8 @@ import ErrorHandler from "./errorMiddleware.js";
 export const generateOtp = catchAsyncErrors(async (req, res, next) => {
     const { email } = req.body;
 
+    console.log("hello1");
+
     // Check if user already exists
     let user = await User.findOne({ email });
     if (user) {
@@ -14,7 +16,7 @@ export const generateOtp = catchAsyncErrors(async (req, res, next) => {
 
     // Generate a 6-digit OTP and set expiration
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    const expiresAt = Date.now() + 15 * 60 * 1000; // OTP expires in 5 minutes
+    const expiresAt = Date.now() + 15 * 60 * 1000; // OTP expires in 15 minutes
 
     // Store OTP in memory
     otpStore[email] = { otp, expiresAt };
