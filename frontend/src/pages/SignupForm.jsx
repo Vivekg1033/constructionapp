@@ -4,7 +4,7 @@ import axios from 'axios';
 import './SignupForm.css';
 
 const SignupForm = () => {
-  console.log("hello ");
+  // console.log("hello ");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,6 +18,23 @@ const SignupForm = () => {
   const [country, setCountry] = useState("India");
   const [pincode, setPincode] = useState("");
   const [serverResponse, setServerResponse] = useState("");
+  const [otp, setOtp] = useState("");
+
+  const getOtp = async (e) => {
+    e.preventDefault();
+    try {
+        const responseOtp = await axios.post(
+            "http://localhost:8765/user/client/register/otp",
+            { email },
+            { headers: { "Content-Type": "application/json" } }
+        );
+        console.log("OTP Response:", responseOtp.data); // ✅ Corrected console.log
+        setServerResponse(responseOtp.data.message);
+    } catch (error) {
+        console.error("Error:", error.response?.data?.message || "An error occurred.");
+        setServerResponse(error.response?.data?.message || "An error occurred.");
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +43,7 @@ const SignupForm = () => {
       lastName,
       email,
       password,
+      otp,
       address: {
         residency,
         street,
@@ -166,6 +184,16 @@ const SignupForm = () => {
             type="text"
             value={pincode}
             onChange={(e) => setPincode(e.target.value)}
+            className="input"
+          />
+        </div>
+
+        <div className="form-group">
+          <button onClick={getOtp}>Get Otp</button>
+          <input
+            type="text"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
             className="input"
           />
         </div>

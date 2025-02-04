@@ -8,7 +8,9 @@ import { sendAdminTechnicianWelcomeEmail, sendClientWelcomeEmail } from "./email
 const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 
 export const clientRegister = catchAsyncErrors(async (req, res, next) => {
-    const { firstName, lastName, email, password, role, address, otp } = req.body;
+    const { firstName, lastName, email, password, address, otp } = req.body;
+
+    const role = "client";
 
     // Validate input fields
     if (!firstName || !lastName || !email || !password || !role || !otp) {
