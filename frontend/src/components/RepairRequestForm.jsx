@@ -36,7 +36,7 @@ const RepairRequestForm = () => {
       formData.append("clientNotes", clientNotes);
 
       attachments.forEach((file) => {
-        formData.append("attachments", file);
+        formData.append("images", file);
       });
 
       // Send the request to backend
