@@ -34,42 +34,15 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.lottie-container {
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 100px;
-}
-
 .header {
     color: var(--primary-color);
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
-.address-header {
-    margin-top: 1.5rem;
-    font-size: 1.2rem;
-    color: var(--primary-color);
-}
-
-
-.form-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.form-group-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
 .form-group {
     position: relative;
+    margin-bottom: 1rem;
 }
 
 .label {
@@ -94,7 +67,6 @@ body {
     color: var(--text-color);
 }
 
-/* Focus and non-empty input styling */
 .input:focus, .input:not(:placeholder-shown) {
     border-color: var(--primary-color);
     box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
@@ -102,7 +74,6 @@ body {
     background: white;
 }
 
-/* Move label above input when focused or not empty */
 .input:focus + .label, .input:not(:placeholder-shown) + .label {
     top: 10px;
     left: 8px;
@@ -120,4 +91,38 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.server-message {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.success-message {
+    background: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+}
+
+.error-message {
+    background: #F8D7DA;
+    color: #721C24;
 }

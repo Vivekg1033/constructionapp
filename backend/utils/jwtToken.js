@@ -2,6 +2,8 @@ export const generateToken = (user, message, statusCode, res) => {
     // Generate the token
     const token = user.generateJsonWebToken();
 
+    console.log(token)
+
     // Convert the Mongoose document into a plain JavaScript object
     user = user.toObject();
 

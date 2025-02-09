@@ -1,42 +1,80 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Context } from '../main';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import './LoginForm.css';
 
 function LoginForm() {
   // useState for email and password
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigateTo = useNavigate();
+    
+  const {isAuthenticated, setIsAuthenticated} = useContext(Context);
+
+  if(isAuthenticated) {
+      return <Navigate to='/'/>
+  }
+
   // Handle form submit
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Process the login here with email and password
-    console.log('Email:', email);
-    console.log('Password:', password);
+      try {
+        console.log('Before axios call');
+        const response = await axios.post("http://localhost:8765/user/login", { email, password, role: "client"}, { withCredentials: true, headers: {"Content-Type": "application/json"} });
+        setIsAuthenticated(true);
+        navigateTo('/');
+        console.log('Response received', response);
+        toast.success(response.data.message);
+    } catch (error) {
+        console.log('Error occurred', error);
+        if (error.response && error.response.data) {
+            toast.error(error.response.data.message);
+        } else {
+            toast.error("An error occurred. Please try again later.");
+        }
+    }
   };
 
   return (
-    <div>
+    <div className="container">
+      <h2 className="header">Login</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
+      <div className="form-group">
+        
         <input
           type="email"
           id="email"
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}  // Directly updating the state
+          className="input"
           required
         />
+        <label className="label">Email</label>
+        </div>
         
-        <label htmlFor="password">Password:</label>
+        <div className="form-group">
         <input
           type="password"
           id="password"
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}  // Directly updating the state
+          className="input"
           required
         />
+        <label className="label">Password</label>
+        </div>
         
-        <button type="submit">Login</button>
+        <button type="submit" className="button">Login</button>
+        <div className="register-link">
+          <p>
+            Don't have an account? <Link to={"/signup"}>Sign Up</Link>
+          </p>
+        </div>
       </form>
     </div>
   );

@@ -38,7 +38,7 @@ export const clientRegister = catchAsyncErrors(async (req, res, next) => {
     }
 
     // Create new user
-    user1 = await User.create({
+    let user2 = await User.create({
         firstName,
         lastName,
         email,
@@ -53,7 +53,7 @@ export const clientRegister = catchAsyncErrors(async (req, res, next) => {
     sendClientWelcomeEmail(email, firstName);
 
     // Generate and send token
-    generateToken(user1, "User registered successfully.", 200, res);
+    generateToken(user2, "User registered successfully.", 200, res);
 });
 
 export const login = catchAsyncErrors(async (req, res, next) => {
@@ -91,12 +91,21 @@ export const login = catchAsyncErrors(async (req, res, next) => {
 })
 
 export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
-    const user = req.user;
+    if (!req.user) {
+        return res.status(200).json({
+            success: false,
+            message: "User is not logged in",
+            user: null  // Send null instead of throwing an error
+        });
+    }
+
     res.status(200).json({
         success: true,
-        user
-    })
-})
+        user: req.user
+    });
+});
+
+
 
 export const clientLogout = catchAsyncErrors(async (req, res, next) => {
     res.clearCookie("clientToken", {
