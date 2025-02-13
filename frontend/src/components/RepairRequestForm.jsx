@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Navbar from "./Navbar";
+import './RepairRequestForm.css'
 
 const RepairRequestForm = () => {
   const [description, setDescription] = useState("");
@@ -63,6 +65,7 @@ const RepairRequestForm = () => {
 
   return (
     <div className="repair-form">
+      <Navbar/>
       <h2>Submit a Repair Request</h2>
       <form onSubmit={handleSubmit}>
         <label>Description:</label>

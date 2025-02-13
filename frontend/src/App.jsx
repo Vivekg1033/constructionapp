@@ -11,6 +11,10 @@ import Home from './pages/Home'
 
 import { Context } from './main';
 import { useContext, useEffect } from 'react';
+import RepairRequestForm from './components/RepairRequestForm';
+import Navbar from './components/Navbar';
+import ContactUs from './pages/Contact';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
 
@@ -33,9 +37,15 @@ function App() {
   }, [isAuthenticated]);
   
   return (
+
+  
     <BrowserRouter>
       <Routes>
+        
         <Route path='/' element={<Home/>}/>
+        <Route path='/profile' element={<ProfilePage/>}/>
+        <Route path='/contact' element={<ContactUs/>}/>
+        <Route path='/repair' element={<RepairRequestForm/>}/>
         <Route path="/signup" element={<SignupForm />} />
         <Route path='/login' element={<LoginForm/>}/>
       </Routes>

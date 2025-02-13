@@ -1,0 +1,134 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .app-container {
+    min-height: 100vh;
+    width: 100%;
+    margin: auto;
+  }
+  
+  
+  /* Hero Section */
+  .hero-section {
+    background-color: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-button {
+    background-color: white;
+    color: #2563eb;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    font-size: 1.1rem;
+  }
+  
+  .hero-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Services Section */
+  .services-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    text-align: center;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+    padding: 0 20px;
+  }
+  
+  .service-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Recent Bookings */
+  .bookings-section {
+    background: white;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .bookings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+    padding: 0 20px;
+  }
+  
+  .booking-card {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-mechanic {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .booking-service {
+    color: #666;
+    font-size: 1.1rem;
+  }
+  
+  .booking-date {
+    font-size: 1rem;
+    color: #999;
+  }
+  
+  /* Contact Section */
+  .contact-section {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .contact-box {
+    background: white;
+    padding: 30px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-info p {
+    color: #555;
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+  
