@@ -1,81 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-:root {
-    --primary-color: #4A90E2;
-    --secondary-color: #f4f7fc;
-    --text-color: #333;
-    --border-color: #ccc;
-    --button-hover: #357ABD;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: url('https://images.unsplash.com/photo-1615715325974-aaa65b23fdf8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlnaHQlMjBibHVlfGVufDB8fDB8fHww') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-}
-
-.container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
+.signup-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem 2rem; /* Extra padding for navbar spacing */
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    /* width: 90vw; */
-    max-width: 1200px;
+    max-width: 600px;
+    width: 100%;
     animation: fadeIn 0.8s ease-in-out;
     text-align: center;
-    position: relative;
+    margin: 100px auto; /* Centers form and adds space from navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
-.lottie-container {
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 100px;
-}
-
-.header {
+.signup-header {
     color: var(--primary-color);
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
-.address-header {
+.signup-address-header {
     margin-top: 1.5rem;
     font-size: 1.2rem;
     color: var(--primary-color);
 }
 
-
-.form-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.form-group-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.form-group {
+/* Form input fields */
+.signup-form-group {
     position: relative;
+    margin-bottom: 1.5rem;
 }
 
-.label {
+.signup-form-group-row {
+    display: flex;
+    gap: 20px;
+}
+
+.signup-form-group-row .signup-form-group {
+    flex: 1;
+}
+
+.signup-label {
     position: absolute;
     top: 50%;
-    left: 10px;
+    left: 12px;
     transform: translateY(-50%);
     color: var(--text-color);
     font-size: 0.9rem;
@@ -85,31 +55,33 @@ body {
 
 .input {
     width: 100%;
-    padding: 14px 10px;
+    padding: 14px 12px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
-    background: transparent;
+    background: white;
     transition: all 0.3s ease;
     color: var(--text-color);
 }
 
 /* Focus and non-empty input styling */
-.input:focus, .input:not(:placeholder-shown) {
+.input:focus,
+.input:not(:placeholder-shown) {
     border-color: var(--primary-color);
     box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
     outline: none;
-    background: white;
 }
 
 /* Move label above input when focused or not empty */
-.input:focus + .label, .input:not(:placeholder-shown) + .label {
+.input:focus + .signup-label,
+.input:not(:placeholder-shown) + .signup-label {
     top: 10px;
     left: 8px;
     font-size: 0.75rem;
     color: var(--primary-color);
 }
 
+/* Buttons */
 .button {
     width: 100%;
     background: var(--primary-color);
@@ -120,4 +92,19 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background: var(--button-hover);
+    transform: scale(1.05);
+}
+
+.success-message {
+    color: green;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 1rem;
 }

@@ -1,71 +1,129 @@
-.contact-container body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* General Styles */
+.repair-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f8f8f8;
-}
-
-.contact-container {
+    justify-content: center;
     width: 100%;
-}
-
-header {
-    background-color: #333;
-    color: white;
+    min-height: 100vh;
+    background: #291903;
     padding: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-h1 {
-    margin: 0;
-}
-
-.contact-container main {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    width: 80%;
-    max-width: 600px;
-}
-
-form {
+  }
+  
+  /* Content Wrapper */
+  .repair-content {
     display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin: 10px 0 5px;
-}
-
-input, textarea {
-    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+  }
+  
+  /* Form Section */
+  .repair-card {
+    width: 48%;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  .repair-card h2 {
+    font-size: 1.8rem;
     margin-bottom: 15px;
+    color: #222;
+    text-align: center;
+  }
+  
+  .repair-card label {
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+  }
+  
+  .repair-card input,
+  .repair-card textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-button {
-    padding: 10px;
-    background-color: #333;
-    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .repair-card textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .repair-card input:focus,
+  .repair-card textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background: #007bff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    width: 100%;
-    text-align: center;
-}
+    transition: 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background: #0056b3;
+  }
+  
+  .submit-btn:disabled {
+    background: #999;
+    cursor: not-allowed;
+  }
+  
+  /* Lottie Animation */
+  .lottie-animation {
+    width: 48%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Fix */
+  @media (max-width: 768px) {
+    .repair-content {
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+    }
+  
+    .repair-card, .lottie-animation {
+      width: 100%;
+    }
+  }
+  

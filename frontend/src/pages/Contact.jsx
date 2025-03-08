@@ -1,74 +1,58 @@
-import React, { useState } from 'react';
-import './Contact.css';
-import Navbar from '../components/Navbar';
+import React from "react";
+import { Link } from "react-router-dom";  // ✅ Import Link
+import Navbar from "../components/Navbar";
+import Lottie from "lottie-react";
+import contactAnimation from "../assets/contact-animation.json";
+import "./Contact.css";
 
 const ContactUs = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission logic
-    console.log({ name, email, phone, message });
-  };
-
   return (
-    <div className="contact-container">
-        <Navbar/>
-      <header>
-        <h1>Contact Us</h1>
-        <p>We'd love to hear from you!</p>
+    <div>
+      {/* <Navbar />  ✅ Navbar added back */}
+      {/* Header Section */}
+      <header className="header" data-aos="fade-down">
+        <div className="header-box container">
+          <div className="logo">
+            <Link to="/">Construction Machine Repair Service</Link>
+          </div>
+          <nav className="menu">
+            <Link to="/" className="active">Home</Link>
+            <Link to="/repair">Book Repair</Link>
+            <Link to="/contact">Contact</Link>
+            <Link to="/profile">Profile</Link>
+          </nav>
+          <div className="btn-box">
+            <Link to="/login" className="btn1">Login</Link>
+            {/* <Link to="/signup" className="btn2">Sign Up</Link> */}
+          </div>
+        </div>
       </header>
-      <main>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
 
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+      <div className="repair-container">
+        <div className="repair-content">
+          {/* Form Section */}
+          <div className="repair-card">
+            <h2>Contact Us</h2>
+            <form>
+              <label>Name:</label>
+              <input type="text" placeholder="Enter your name" required />
 
-          <label htmlFor="phone">Phone:</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-          />
+              <label>Email:</label>
+              <input type="email" placeholder="Enter your email" required />
 
-          <label htmlFor="message">Message:</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-          ></textarea>
+              <label>Message:</label>
+              <textarea placeholder="Enter your message" required></textarea>
 
-          <button type="submit">Submit</button>
-        </form>
-      </main>
-      <footer>
-        <p>&copy; 2025 Construction Machine Repair Shop. All rights reserved.</p>
-      </footer>
+              <button type="submit" className="submit-btn">Submit</button>
+            </form>
+          </div>
+
+          {/* Lottie Animation Section */}
+          <div className="lottie-animation">
+            <Lottie animationData={contactAnimation} loop={true} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

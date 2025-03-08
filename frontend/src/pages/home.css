@@ -1,134 +1,245 @@
-/* Global Styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-  }
-  
-  .app-container {
-    min-height: 100vh;
-    width: 100%;
-    margin: auto;
-  }
-  
-  
-  /* Hero Section */
-  .hero-section {
-    background-color: #2563eb;
-    color: white;
-    text-align: center;
-    padding: 100px 0;
-  }
-  
-  .hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
-  
-  .hero-section p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .hero-button {
-    background-color: white;
-    color: #2563eb;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    font-size: 1.1rem;
-  }
-  
-  .hero-button:hover {
-    background-color: #e0e0e0;
-  }
-  
-  /* Services Section */
-  .services-section {
-    max-width: 1200px;
-    margin: 60px auto;
-    text-align: center;
-  }
-  
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 30px;
-    padding: 0 20px;
-  }
-  
-  .service-card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* Recent Bookings */
-  .bookings-section {
-    background: white;
-    padding: 60px 0;
-    text-align: center;
-  }
-  
-  .bookings-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 30px;
-    padding: 0 20px;
-  }
-  
-  .booking-card {
-    border: 1px solid #e0e0e0;
-    padding: 20px;
-    border-radius: 8px;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .booking-mechanic {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
-  .booking-service {
-    color: #666;
-    font-size: 1.1rem;
-  }
-  
-  .booking-date {
-    font-size: 1rem;
-    color: #999;
-  }
-  
-  /* Contact Section */
-  .contact-section {
-    background-color: #f8f9fa;
-    padding: 60px 20px;
-    text-align: center;
-  }
-  
-  .contact-box {
-    background: white;
-    padding: 30px;
-    max-width: 500px;
-    margin: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contact-info p {
-    color: #555;
-    margin: 10px 0;
-    font-size: 1.1rem;
-  }
-  
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header Section */
+.header {
+  background: #222;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo a {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu a {
+  color: #ddd;
+  margin: 0 15px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #ff7e5f;
+}
+
+.btn-box a {
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn1 {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.btn2 {
+  background: #ff7e5f;
+  color: #fff;
+}
+
+/* Swiper Section */
+.main {
+  padding-top: 80px;
+}
+
+.swiper {
+  width: 100%;
+  height: 450px;
+}
+
+.swiper-slide {
+  position: relative;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.swiper-slide-content h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.slider-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #ff7e5f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white;
+}
+
+/* About Section */
+.About {
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.about-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* .about-image {
+  position: absolute;
+  width: 70%;
+  height: 50%;
+  top: 0;
+  left: 0;
+  opacity: 0.5; /* Lower opacity for a faded effect */
+  /* background: url("/public/image/about.jpg") no-repeat center center/cover;  */
+   /* z-index: 1; */ */
+/* }  */
+
+.about-Content {
+  max-width: 500px;
+  color: #222;
+  position: relative;
+  z-index: 3;
+}
+
+.about-Content h3 {
+  font-size: 1.8rem;
+  color: #222;
+  font-weight: bold;
+}
+
+
+.btn a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #ff7e5f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Services Section */
+.service {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.service-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-text {
+  padding: 15px;
+}
+
+.card-text h4 {
+  font-size: 1.4rem;
+  color: #222;
+}
+
+.card-text p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.card-text .btn a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #ff7e5f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.footerbox {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.f-menu a {
+  color: #ddd;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.f-menu a:hover {
+  color: #ff7e5f;
+}
